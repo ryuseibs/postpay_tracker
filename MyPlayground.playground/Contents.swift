@@ -13,4 +13,15 @@ content.categoryIdentifier = "MY_REPLY_CATEGORY"
 // 確認
 print(content.title)
 
+// 指定時間後に実行
+let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
 
+// 上記をセットにして、リクエストにする
+let request = UNNotificationRequest(
+    //通知の固有IDを作成
+    identifier: "UUID_01",
+    content: content,
+    trigger: trigger
+)
+
+print("リクエストが完了した: \(request.identifier)")
